@@ -1,0 +1,120 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bilingual-subtitle-generator"
+version = "2.5.0"
+description = "Production-ready AI-powered bilingual subtitle generation system with enterprise-grade quality control"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Anderson Oliveira", email = "anderson@example.com"}
+]
+maintainers = [
+    {name = "Anderson Oliveira", email = "anderson@example.com"}
+]
+keywords = [
+    "subtitle", "bilingual", "AI", "translation", "SRT", "VTT", 
+    "claude", "openai", "gemini", "openrouter", "streamlit",
+    "quality-control", "cost-analysis", "batch-processing",
+    "enterprise-grade", "production-ready"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education", 
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Office/Business",
+    "Framework :: Streamlit",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "streamlit>=1.28.0",
+    "requests>=2.31.0",
+    "python-docx>=0.8.11",
+    "pandas>=1.5.0",
+]
+
+[project.optional-dependencies]
+ai = [
+    "openai>=1.0.0",
+    "google-generativeai>=0.3.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+all = [
+    "openai>=1.0.0",
+    "google-generativeai>=0.3.0",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+subtitle-generator = "subtitle_generator.app:main"
+subtitle-cost = "scripts.api_cost_calculator:main"
+subtitle-cli = "scripts.comprehensive_cost_cli:main"
+
+[project.urls]
+Homepage = "https://github.com/andersob0/subtitle-generator"
+Documentation = "https://github.com/andersob0/subtitle-generator/tree/main/docs"
+Repository = "https://github.com/andersob0/subtitle-generator.git"
+"Bug Tracker" = "https://github.com/andersob0/subtitle-generator/issues"
+Changelog = "https://github.com/andersob0/subtitle-generator/blob/main/docs/IMPLEMENTATION_SUMMARY.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.pytest_cache
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

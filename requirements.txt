@@ -1,0 +1,24 @@
+# Bilingual Subtitle Generator - Production Dependencies
+# Core framework and web interface
+streamlit>=1.28.0
+
+# HTTP client for API requests (Claude, OpenRouter)
+requests>=2.31.0
+
+# Document processing for translation files
+python-docx>=0.8.11
+
+# Data manipulation for quality reports and cost analysis
+pandas>=1.5.0
+
+# Optional AI provider dependencies
+openai>=1.0.0                    # OpenAI GPT models
+google-generativeai>=0.3.0      # Google Gemini models
+
+# Development and testing dependencies (optional)
+# pytest>=7.0.0                 # For running test suite
+# unittest-mock>=1.0.1          # For test mocking (included in Python 3.3+)
+# py-compile                     # For syntax validation (included in Python)
+
+# Note: Claude API and OpenRouter use direct HTTP requests via the requests library
+# No additional dependencies required for Claude or OpenRouter integration
